@@ -1,25 +1,162 @@
-﻿namespace _23._12._13_Array_Enum
+﻿using System.Runtime.InteropServices;
+
+namespace _23._12._13_Array_Enum
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("----- A -----");
 
-            /*
-                Оголосити одновимірний (5 елементів) масив з назвою
-                A i двовимірний масив (3 рядки, 4 стовпці) дробових чисел
-                з назвою B. Заповнити одновимірний масив А числами,
-                введеними з клавіатури користувачем, а двовимірний
-                масив В — випадковими числами за допомогою циклів.
-                Вивести на екран значення масивів: масиву А — в один
-                рядок, масиву В — у вигляді матриці. Знайти у даних
-                масивах загальний максимальний елемент, мінімальний
-                елемент, загальну суму усіх елементів, загальний добуток
-                усіх елементів, суму парних елементів масиву А, суму
-                непарних стовпців масиву В.
-             */
+            int sizeA = 5;
+            int[] A = new int[sizeA];
 
-            int[] array = new int[5];
+            Console.WriteLine("Enter numbers for A: ");
+            for (int i = 0; i < sizeA; i++)
+            {
+                A[i] = int.Parse(Console.ReadLine());
+            }
+            for (int i = 0; i < A.GetLength(0); i++)
+            {
+                Console.Write("[" + A[i] + "]\t");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("----- B -----");
+
+            Random random = new Random();
+            int sizeB = 5;
+            float[,] B = new float[sizeB, sizeB];
+            for (int i = 0; i < B.GetLength(0); i++)
+            {
+                for (int j = 0; j < B.GetLength(1); j++)
+                {
+                    B[i, j] = (float)(random.Next(10) + random.NextDouble());
+                    B[i, j] = (float)Math.Round(B[i, j], 1);
+
+                    Console.Write("[" + B[i, j] + "]\t");
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("----- RESULTS -----");
+
+            Console.WriteLine($"Max value: {FindMax(A, B)}");
+            Console.WriteLine($"Min value: {FindMin(A, B)}");
+            Console.WriteLine($"Sum: {FindSum(A, B)}");
+            Console.WriteLine($"Product: {FindProduct(A, B)}");
+
+            Console.WriteLine();
+            Console.WriteLine("----- TEST -----");
+
+            float sum = 0;
+            for (int i = 0; i < B.GetLength(0); i++)
+            {
+                if (A[i] % 2 == 0)
+                {
+                    sum += A[i];
+                }
+            }
+            Console.WriteLine($"Sum of A (eaven numbers): {sum}");
+
+            for (int i = 0; i < B.GetLength(0); i++)
+            {
+                for(int j = 0; j < B.GetLength(1); j++)
+                {
+                    if (j % 2 == 0)
+                    {
+                        sum += B[i, j];
+                    }
+                }
+            }
+            Console.WriteLine($"Sum of B (non eaven columns): {sum}");
+        }
+        static double FindProduct(int[] A, float[,] B)
+        {
+            double product = 1;
+
+            for (int i = 0; i < A.GetLength(0); i++)
+            {
+                product *= A[i];
+            }
+            for (int i = 0; i < B.GetLength(0); i++)
+            {
+                for (int j = 0; j < B.GetLength(1); j++)
+                {
+                    product *= B[i, j];
+                }
+            }
+            return product;
+        }
+        static float FindSum(int[] A, float[,] B)
+        {
+            float sum = 0;
+
+            for (int i = 0; i < A.GetLength(0); i++)
+            {
+                sum += A[i];
+            }
+            for (int i = 0; i < B.GetLength(0); i++)
+            {
+                for (int j = 0; j < B.GetLength(1); j++)
+                {
+                    sum += B[i, j];
+                }
+            }
+            return sum;
+        }
+        static float FindMin(int[] A, float[,] B)
+        {
+            float min = 0;
+
+            for (int i = 0; i < A.GetUpperBound(0); i++)
+            {
+                if (A[i] < A[i + 1])
+                {
+                    min = A[i];
+                }
+            }
+            for (int i = 0; i < B.GetLength(0); i++)
+            {
+                for (int j = 0; j < B.GetUpperBound(1); j++)
+                {
+                    if (B[i, j] < B[i, j + 1])
+                    {
+                        if (min > B[i, j])
+                        {
+                            min = B[i, j];
+                        }
+                    }
+                }
+            }
+            return min;
+        }
+        static float FindMax(int[] A, float[,] B)
+        {
+            float max = 0;
+
+            for (int i = 0; i < A.GetUpperBound(0); i++)
+            {
+                if (A[i + 1] > A[i])
+                {
+                    max = A[i + 1];
+                }
+            }
+            for (int i = 0; i < B.GetLength(0); i++)
+            {
+                for (int j = 0; j < B.GetUpperBound(1); j++)
+                {
+                    if (B[i, j + 1] > B[i, j])
+                    {
+                        if (max < B[i, j + 1])
+                        {
+                            max = B[i, j + 1];
+                        }
+                    }
+                }
+            }
+            return max;
         }
 
         #region Task 2
