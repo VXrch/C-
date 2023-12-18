@@ -13,3 +13,18 @@ C:\Users\User\OneDrive\Рабочий стол\C#\23.12.13_Arrays\23.12.13_Array
 C:\Users\User\OneDrive\Рабочий стол\C#\23.12.13_Arrays\23.12.13_Arrays\obj\Debug\net6.0\23.12.13_Arrays.pdb
 C:\Users\User\OneDrive\Рабочий стол\C#\23.12.13_Arrays\23.12.13_Arrays\obj\Debug\net6.0\23.12.13_Arrays.genruntimeconfig.cache
 C:\Users\User\OneDrive\Рабочий стол\C#\23.12.13_Arrays\23.12.13_Arrays\obj\Debug\net6.0\ref\23.12.13_Arrays.dll
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\bin\Debug\net6.0\23.12.13_Arrays.exe
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\bin\Debug\net6.0\23.12.13_Arrays.deps.json
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\bin\Debug\net6.0\23.12.13_Arrays.runtimeconfig.json
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\bin\Debug\net6.0\23.12.13_Arrays.dll
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\bin\Debug\net6.0\23.12.13_Arrays.pdb
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\obj\Debug\net6.0\23.12.13_Arrays.csproj.AssemblyReference.cache
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\obj\Debug\net6.0\23.12.13_Arrays.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\obj\Debug\net6.0\23.12.13_Arrays.AssemblyInfoInputs.cache
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\obj\Debug\net6.0\23.12.13_Arrays.AssemblyInfo.cs
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\obj\Debug\net6.0\23.12.13_Arrays.csproj.CoreCompileInputs.cache
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\obj\Debug\net6.0\23.12.13_Arrays.dll
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\obj\Debug\net6.0\refint\23.12.13_Arrays.dll
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\obj\Debug\net6.0\23.12.13_Arrays.pdb
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\obj\Debug\net6.0\23.12.13_Arrays.genruntimeconfig.cache
+C:\Users\dev\Desktop\C#\23.12.13_Arrays\23.12.13_Arrays\obj\Debug\net6.0\ref\23.12.13_Arrays.dll

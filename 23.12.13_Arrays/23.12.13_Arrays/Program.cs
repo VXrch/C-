@@ -1,10 +1,170 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 
 namespace _23._12._13_Array_Enum
 {
     internal class Program
     {
         static void Main(string[] args)
+        {
+            int choice;
+
+            Console.WriteLine("Enter task number (1-5 or 0 to print all)");
+            choice = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(); Console.WriteLine();
+
+            switch (choice)
+            {
+                case 0:
+                    Console.WriteLine(" ================| TASK 1 |================"); Task1(); Console.WriteLine();
+                    Console.WriteLine(" ================| TASK 2 |================"); Task2(); Console.WriteLine();
+                    Console.WriteLine(" ================| TASK 3 |================"); Task3(); Console.WriteLine();
+                    Console.WriteLine(" ================| TASK 4 |================"); Task4(); Console.WriteLine();
+                    Console.WriteLine(" ================| TASK 5 |================"); Task5(); Console.WriteLine();
+                    break;
+                case 1:
+                    Console.WriteLine(" ================| TASK 1 |================"); Task1();
+                    break;
+                case 2:
+                    Console.WriteLine(" ================| TASK 2 |================"); Task2();
+                    break;
+                case 3:
+                    Console.WriteLine(" ================| TASK 3 |================"); Task3();
+                    break;
+                case 4:
+                    Console.WriteLine(" ================| TASK 4 |================"); Task4();
+                    break;
+                case 5:
+                    Console.WriteLine(" ================| TASK 5 |================"); Task5();
+                    break;
+                default:
+                    Console.WriteLine("Wrong number!");
+                    break;
+            }
+
+            Console.WriteLine(); Console.WriteLine();
+        }
+
+        #region Task 5
+        static void Task5()
+        {
+            Random random = new Random();
+            int numb;
+
+            int size = 10;
+            int[] array = new int[size];
+
+            Console.WriteLine("Enter value: ");
+            numb = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < size; i++)
+            {
+                array[i] = random.Next(21);
+                Console.Write(array[i] + " | ");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("-------");
+
+            for (int i = 0; i < size; i++)
+            {
+                if (array[i] < numb - 5 || array[i] > numb + 5)
+                {
+                    Console.Write(array[i] + " | ");
+                }
+            }
+        }
+        #endregion
+
+        #region Task 4
+        static void Task4()
+        {
+            float[,] array = new float[5, 5];
+            Random random = new Random();
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    array[i, j] = (float)(random.Next(-100, 100) + random.NextDouble());
+                    array[i, j] = (float)Math.Round(array[i, j], 1);
+
+                    Console.Write($"[{i}][{j}] = [{array[i, j]}]     ");
+                }
+                Console.WriteLine();
+            }
+
+            float min = float.MaxValue, max = float.MinValue;
+            int minX = 0, minY = 0, maxX = 0, maxY = 0;
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    if (array[i, j] > max)
+                    {
+                        max = array[i, j];
+                        maxX = i; maxY = j;
+                    }
+                    if (array[i, j] < min)
+                    {
+                        min = array[i, j];
+                        minX = i; minY = j;
+                    }
+                }
+            }
+
+            Console.WriteLine($"MAX value = {max}, MinValue = {min}");
+            Console.WriteLine($"MAX [{minX},{minY}]");
+            Console.WriteLine($"MinY [{maxX},{maxY}]");
+
+            float sum = 0;
+
+            if (maxX > minX)
+            {
+                for (int i = minX; i < maxX; i++)
+                {
+                    for (int j = minY; j < maxY; j++)
+                    {
+                        sum += array[i, j];
+                    }
+                }
+            }
+            else if (maxX == minX)
+            {
+                if (maxY > minY)
+                {
+                    for (int j = minY; j < maxY; j++)
+                    {
+                        sum += array[minX, j];
+                    }
+                }
+                else if (maxY < minY)
+                {
+                    for (int j = maxY; j < minY; j--)
+                    {
+                        sum += array[minX, j];
+                    }
+                }
+            }
+            else // maxX < minX
+            {
+                for (int i = maxX; i < minX; i--)
+                {
+                    for (int j = maxY; j < minY; j--)
+                    {
+                        sum += array[i, j];
+                    }
+                }
+            }
+
+            Console.WriteLine($"Sum = {sum}");
+        }
+        #endregion
+
+        #region Task 3
+        static void Task3()
         {
             Console.WriteLine("----- A -----");
 
@@ -40,7 +200,6 @@ namespace _23._12._13_Array_Enum
             }
 
             Console.WriteLine();
-            Console.WriteLine("----- RESULTS -----");
 
             Console.WriteLine($"Max value: {FindMax(A, B)}");
             Console.WriteLine($"Min value: {FindMin(A, B)}");
@@ -62,7 +221,7 @@ namespace _23._12._13_Array_Enum
 
             for (int i = 0; i < B.GetLength(0); i++)
             {
-                for(int j = 0; j < B.GetLength(1); j++)
+                for (int j = 0; j < B.GetLength(1); j++)
                 {
                     if (j % 2 == 0)
                     {
@@ -108,25 +267,22 @@ namespace _23._12._13_Array_Enum
         }
         static float FindMin(int[] A, float[,] B)
         {
-            float min = 0;
+            float min = int.MaxValue;
 
-            for (int i = 0; i < A.GetUpperBound(0); i++)
+            for (int i = 0; i < A.GetLength(0); i++)
             {
-                if (A[i] < A[i + 1])
+                if (A[i] < min)
                 {
                     min = A[i];
                 }
             }
             for (int i = 0; i < B.GetLength(0); i++)
             {
-                for (int j = 0; j < B.GetUpperBound(1); j++)
+                for (int j = 0; j < B.GetLength(1); j++)
                 {
-                    if (B[i, j] < B[i, j + 1])
+                    if (B[i, j] < min)
                     {
-                        if (min > B[i, j])
-                        {
-                            min = B[i, j];
-                        }
+                        min = B[i, j];
                     }
                 }
             }
@@ -134,33 +290,31 @@ namespace _23._12._13_Array_Enum
         }
         static float FindMax(int[] A, float[,] B)
         {
-            float max = 0;
+            float max = int.MinValue;
 
-            for (int i = 0; i < A.GetUpperBound(0); i++)
+            for (int i = 0; i < A.GetLength(0); i++)
             {
-                if (A[i + 1] > A[i])
+                if (A[i] > max)
                 {
                     max = A[i + 1];
                 }
             }
             for (int i = 0; i < B.GetLength(0); i++)
             {
-                for (int j = 0; j < B.GetUpperBound(1); j++)
+                for (int j = 0; j < B.GetLength(1); j++)
                 {
-                    if (B[i, j + 1] > B[i, j])
+                    if (B[i, j] > max)
                     {
-                        if (max < B[i, j + 1])
-                        {
-                            max = B[i, j + 1];
-                        }
+                        max = B[i, j];
                     }
                 }
             }
             return max;
         }
+        #endregion
 
         #region Task 2
-        static void TaksNumberTwo()
+        static void Task2()
         {
             Random rand = new Random();
 
@@ -194,7 +348,7 @@ namespace _23._12._13_Array_Enum
         #endregion
 
         #region Task 1
-        static void TaskNumberOne()
+        static void Task1()
         {
             Console.WriteLine("Enter 5 numbers: ");
 
