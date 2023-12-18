@@ -5,3 +5,11 @@ C:\Users\User\OneDrive\Рабочий стол\C#\23.12.11_Intro\23.12.11_Intro\
 C:\Users\User\OneDrive\Рабочий стол\C#\23.12.11_Intro\23.12.11_Intro\obj\Debug\23.12.11_Intro.csproj.CoreCompileInputs.cache
 C:\Users\User\OneDrive\Рабочий стол\C#\23.12.11_Intro\23.12.11_Intro\obj\Debug\23.12.11_Intro.exe
 C:\Users\User\OneDrive\Рабочий стол\C#\23.12.11_Intro\23.12.11_Intro\obj\Debug\23.12.11_Intro.pdb
+C:\Users\dev\Desktop\C#\23.12.11_Intro\23.12.11_Intro\bin\Debug\23.12.11_Intro.exe.config
+C:\Users\dev\Desktop\C#\23.12.11_Intro\23.12.11_Intro\bin\Debug\23.12.11_Intro.exe
+C:\Users\dev\Desktop\C#\23.12.11_Intro\23.12.11_Intro\bin\Debug\23.12.11_Intro.pdb
+C:\Users\dev\Desktop\C#\23.12.11_Intro\23.12.11_Intro\obj\Debug\23.12.11_Intro.csproj.AssemblyReference.cache
+C:\Users\dev\Desktop\C#\23.12.11_Intro\23.12.11_Intro\obj\Debug\23.12.11_Intro.csproj.SuggestedBindingRedirects.cache
+C:\Users\dev\Desktop\C#\23.12.11_Intro\23.12.11_Intro\obj\Debug\23.12.11_Intro.csproj.CoreCompileInputs.cache
+C:\Users\dev\Desktop\C#\23.12.11_Intro\23.12.11_Intro\obj\Debug\23.12.11_Intro.exe
+C:\Users\dev\Desktop\C#\23.12.11_Intro\23.12.11_Intro\obj\Debug\23.12.11_Intro.pdb
