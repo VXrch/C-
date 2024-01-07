@@ -1,0 +1,7 @@
+D:\ForAll\C#\23.12.15_String\23.12.15_String\bin\Debug\23.12.15_String.exe.config
+D:\ForAll\C#\23.12.15_String\23.12.15_String\bin\Debug\23.12.15_String.exe
+D:\ForAll\C#\23.12.15_String\23.12.15_String\bin\Debug\23.12.15_String.pdb
+D:\ForAll\C#\23.12.15_String\23.12.15_String\obj\Debug\23.12.15_String.csproj.AssemblyReference.cache
+D:\ForAll\C#\23.12.15_String\23.12.15_String\obj\Debug\23.12.15_String.csproj.CoreCompileInputs.cache
+D:\ForAll\C#\23.12.15_String\23.12.15_String\obj\Debug\23.12.15_String.exe
+D:\ForAll\C#\23.12.15_String\23.12.15_String\obj\Debug\23.12.15_String.pdb
