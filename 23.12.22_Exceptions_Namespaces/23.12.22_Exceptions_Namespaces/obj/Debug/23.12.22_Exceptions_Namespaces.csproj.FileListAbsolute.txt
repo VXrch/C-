@@ -1,0 +1,7 @@
+D:\ForAll\C#\23.12.22_Exceptions_Namespaces\23.12.22_Exceptions_Namespaces\bin\Debug\23.12.22_Exceptions_Namespaces.exe.config
+D:\ForAll\C#\23.12.22_Exceptions_Namespaces\23.12.22_Exceptions_Namespaces\bin\Debug\23.12.22_Exceptions_Namespaces.exe
+D:\ForAll\C#\23.12.22_Exceptions_Namespaces\23.12.22_Exceptions_Namespaces\bin\Debug\23.12.22_Exceptions_Namespaces.pdb
+D:\ForAll\C#\23.12.22_Exceptions_Namespaces\23.12.22_Exceptions_Namespaces\obj\Debug\23.12.22_Exceptions_Namespaces.csproj.AssemblyReference.cache
+D:\ForAll\C#\23.12.22_Exceptions_Namespaces\23.12.22_Exceptions_Namespaces\obj\Debug\23.12.22_Exceptions_Namespaces.csproj.CoreCompileInputs.cache
+D:\ForAll\C#\23.12.22_Exceptions_Namespaces\23.12.22_Exceptions_Namespaces\obj\Debug\23.12.22_Exceptions_Namespaces.exe
+D:\ForAll\C#\23.12.22_Exceptions_Namespaces\23.12.22_Exceptions_Namespaces\obj\Debug\23.12.22_Exceptions_Namespaces.pdb
