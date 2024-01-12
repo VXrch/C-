@@ -8,7 +8,7 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Админ\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -16,11 +16,11 @@
       "projectUniqueName": "D:\\ForAll\\C#\\23.12.20_Class_Struct\\23.12.20_Class_Struct\\23.12.20_Class_Struct.csproj",
       "projectName": "23.12.20_Class_Struct",
       "projectPath": "D:\\ForAll\\C#\\23.12.20_Class_Struct\\23.12.20_Class_Struct\\23.12.20_Class_Struct.csproj",
-      "packagesPath": "C:\\Users\\Админ\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "D:\\ForAll\\C#\\23.12.20_Class_Struct\\23.12.20_Class_Struct\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Админ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

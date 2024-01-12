@@ -8,15 +8,15 @@
             public string Name
             {
                 get { return _name; }
-                set 
-                { 
-                    if (!string.IsNullOrEmpty(value)) 
+                set
+                {
+                    if (!string.IsNullOrEmpty(value))
                     {
                         _name = value;
                     }
                     else
                     {
-                        throw new ArgumentNullException("value");
+                        throw new ArgumentNullException();
                     }
                 }
             }
@@ -25,7 +25,7 @@
             public int Age
             {
                 get { return _age; }
-                set 
+                set
                 {
                     if (value >= 18 && value <= 70)
                     {
@@ -42,7 +42,7 @@
             public float Salary
             {
                 get { return _salary; }
-                set 
+                set
                 {
                     if (value > 7000)
                     {
@@ -59,7 +59,7 @@
             public DateOnly Hire_date
             {
                 get { return _hire_date; }
-                set 
+                set
                 {
                     if (value <= DateOnly.FromDateTime(DateTime.Now))
                     {
@@ -70,6 +70,19 @@
                         throw new Exception("Incorrect date! The hire date can't be in the future!");
                     }
                 }
+            }
+
+            public Worker()
+            {
+                _name = "Noname";
+                _age = 18;
+                _salary = 5000;
+                Hire_date = DateOnly.MinValue;
+            }
+
+            public void Fill()
+            {
+                Console.WriteLine("Name : "); Name = Console.ReadLine();
             }
         }
 
