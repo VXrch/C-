@@ -1,0 +1,7 @@
+D:\ForAll\C#\23.12.18_Properties\23.12.18_Properties\obj\Debug\23.12.18_Properties.csproj.AssemblyReference.cache
+D:\ForAll\C#\23.12.18_Properties\23.12.18_Properties\obj\Debug\23.12.18_Properties.csproj.CoreCompileInputs.cache
+D:\ForAll\C#\23.12.18_Properties\23.12.18_Properties\bin\Debug\23.12.18_Properties.exe.config
+D:\ForAll\C#\23.12.18_Properties\23.12.18_Properties\bin\Debug\23.12.18_Properties.exe
+D:\ForAll\C#\23.12.18_Properties\23.12.18_Properties\bin\Debug\23.12.18_Properties.pdb
+D:\ForAll\C#\23.12.18_Properties\23.12.18_Properties\obj\Debug\23.12.18_Properties.exe
+D:\ForAll\C#\23.12.18_Properties\23.12.18_Properties\obj\Debug\23.12.18_Properties.pdb
