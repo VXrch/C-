@@ -233,7 +233,6 @@ namespace _23._12._15_String
             Console.WriteLine("Enter words, and enter[.] to stop: ");
 
             char word;
-            int wordsCounter = 0;
 
             do
             {

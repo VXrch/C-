@@ -1,0 +1,15 @@
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\bin\Debug\net6.0\23.12.20_Class_Struct.exe
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\bin\Debug\net6.0\23.12.20_Class_Struct.deps.json
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\bin\Debug\net6.0\23.12.20_Class_Struct.runtimeconfig.json
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\bin\Debug\net6.0\23.12.20_Class_Struct.dll
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\bin\Debug\net6.0\23.12.20_Class_Struct.pdb
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\obj\Debug\net6.0\23.12.20_Class_Struct.GeneratedMSBuildEditorConfig.editorconfig
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\obj\Debug\net6.0\23.12.20_Class_Struct.AssemblyInfoInputs.cache
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\obj\Debug\net6.0\23.12.20_Class_Struct.AssemblyInfo.cs
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\obj\Debug\net6.0\23.12.20_Class_Struct.csproj.CoreCompileInputs.cache
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\obj\Debug\net6.0\23.12.20_Class_Struct.sourcelink.json
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\obj\Debug\net6.0\23.12.20_Class_Struct.dll
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\obj\Debug\net6.0\refint\23.12.20_Class_Struct.dll
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\obj\Debug\net6.0\23.12.20_Class_Struct.pdb
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\obj\Debug\net6.0\23.12.20_Class_Struct.genruntimeconfig.cache
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Class_Struct\obj\Debug\net6.0\ref\23.12.20_Class_Struct.dll

@@ -1,0 +1,7 @@
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Task2\bin\Debug\23.12.20_Task2.exe.config
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Task2\bin\Debug\23.12.20_Task2.exe
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Task2\bin\Debug\23.12.20_Task2.pdb
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Task2\obj\Debug\23.12.20_Task2.csproj.AssemblyReference.cache
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Task2\obj\Debug\23.12.20_Task2.csproj.CoreCompileInputs.cache
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Task2\obj\Debug\23.12.20_Task2.exe
+D:\ForAll\C#\23.12.20_Class_Struct\23.12.20_Task2\obj\Debug\23.12.20_Task2.pdb
