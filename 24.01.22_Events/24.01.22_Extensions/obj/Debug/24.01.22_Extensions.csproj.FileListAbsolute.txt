@@ -1,0 +1,7 @@
+D:\ForAll\C#\24.01.22_Events\24.01.22_Extensions\bin\Debug\24.01.22_Extensions.exe.config
+D:\ForAll\C#\24.01.22_Events\24.01.22_Extensions\bin\Debug\24.01.22_Extensions.exe
+D:\ForAll\C#\24.01.22_Events\24.01.22_Extensions\bin\Debug\24.01.22_Extensions.pdb
+D:\ForAll\C#\24.01.22_Events\24.01.22_Extensions\obj\Debug\24.01.22_Extensions.csproj.AssemblyReference.cache
+D:\ForAll\C#\24.01.22_Events\24.01.22_Extensions\obj\Debug\24.01.22_Extensions.csproj.CoreCompileInputs.cache
+D:\ForAll\C#\24.01.22_Events\24.01.22_Extensions\obj\Debug\24.01.22_Extensions.exe
+D:\ForAll\C#\24.01.22_Events\24.01.22_Extensions\obj\Debug\24.01.22_Extensions.pdb
