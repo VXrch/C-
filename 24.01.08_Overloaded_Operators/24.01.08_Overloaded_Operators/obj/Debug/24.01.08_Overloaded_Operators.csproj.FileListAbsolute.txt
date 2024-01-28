@@ -1,0 +1,7 @@
+D:\ForAll\C#\24.01.08_Overloaded_Operators\24.01.08_Overloaded_Operators\obj\Debug\24.01.08_Overloaded_Operators.csproj.AssemblyReference.cache
+D:\ForAll\C#\24.01.08_Overloaded_Operators\24.01.08_Overloaded_Operators\obj\Debug\24.01.08_Overloaded_Operators.csproj.CoreCompileInputs.cache
+D:\ForAll\C#\24.01.08_Overloaded_Operators\24.01.08_Overloaded_Operators\bin\Debug\24.01.08_Overloaded_Operators.exe.config
+D:\ForAll\C#\24.01.08_Overloaded_Operators\24.01.08_Overloaded_Operators\bin\Debug\24.01.08_Overloaded_Operators.exe
+D:\ForAll\C#\24.01.08_Overloaded_Operators\24.01.08_Overloaded_Operators\bin\Debug\24.01.08_Overloaded_Operators.pdb
+D:\ForAll\C#\24.01.08_Overloaded_Operators\24.01.08_Overloaded_Operators\obj\Debug\24.01.08_Overloaded_Operators.exe
+D:\ForAll\C#\24.01.08_Overloaded_Operators\24.01.08_Overloaded_Operators\obj\Debug\24.01.08_Overloaded_Operators.pdb
