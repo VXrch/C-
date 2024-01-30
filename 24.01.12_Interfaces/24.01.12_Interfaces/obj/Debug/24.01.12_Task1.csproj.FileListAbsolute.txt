@@ -1,0 +1,7 @@
+D:\ForAll\C#\24.01.12_Interfaces\24.01.12_Interfaces\bin\Debug\24.01.12_Interfaces.exe.config
+D:\ForAll\C#\24.01.12_Interfaces\24.01.12_Interfaces\bin\Debug\24.01.12_Interfaces.exe
+D:\ForAll\C#\24.01.12_Interfaces\24.01.12_Interfaces\bin\Debug\24.01.12_Interfaces.pdb
+D:\ForAll\C#\24.01.12_Interfaces\24.01.12_Interfaces\obj\Debug\24.01.12_Task1.csproj.AssemblyReference.cache
+D:\ForAll\C#\24.01.12_Interfaces\24.01.12_Interfaces\obj\Debug\24.01.12_Task1.csproj.CoreCompileInputs.cache
+D:\ForAll\C#\24.01.12_Interfaces\24.01.12_Interfaces\obj\Debug\24.01.12_Interfaces.exe
+D:\ForAll\C#\24.01.12_Interfaces\24.01.12_Interfaces\obj\Debug\24.01.12_Interfaces.pdb
