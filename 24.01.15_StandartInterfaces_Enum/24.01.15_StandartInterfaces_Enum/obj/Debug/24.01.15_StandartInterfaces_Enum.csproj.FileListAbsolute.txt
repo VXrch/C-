@@ -1,0 +1,7 @@
+D:\ForAll\C#\24.01.15_StandartInterfaces_Enum\24.01.15_StandartInterfaces_Enum\bin\Debug\24.01.15_StandartInterfaces_Enum.exe.config
+D:\ForAll\C#\24.01.15_StandartInterfaces_Enum\24.01.15_StandartInterfaces_Enum\bin\Debug\24.01.15_StandartInterfaces_Enum.exe
+D:\ForAll\C#\24.01.15_StandartInterfaces_Enum\24.01.15_StandartInterfaces_Enum\bin\Debug\24.01.15_StandartInterfaces_Enum.pdb
+D:\ForAll\C#\24.01.15_StandartInterfaces_Enum\24.01.15_StandartInterfaces_Enum\obj\Debug\24.01.15_StandartInterfaces_Enum.csproj.AssemblyReference.cache
+D:\ForAll\C#\24.01.15_StandartInterfaces_Enum\24.01.15_StandartInterfaces_Enum\obj\Debug\24.01.15_StandartInterfaces_Enum.csproj.CoreCompileInputs.cache
+D:\ForAll\C#\24.01.15_StandartInterfaces_Enum\24.01.15_StandartInterfaces_Enum\obj\Debug\24.01.15_StandartInterfaces_Enum.exe
+D:\ForAll\C#\24.01.15_StandartInterfaces_Enum\24.01.15_StandartInterfaces_Enum\obj\Debug\24.01.15_StandartInterfaces_Enum.pdb
