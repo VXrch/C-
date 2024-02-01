@@ -44,6 +44,7 @@ namespace _24._01._22_Extensions
             Завдання 3:
                 Створити метод розширення для класу Array, який буде знаходити кількість однакових елементів в масиві.
             */
+
             try
             {
                 int choice;
@@ -95,10 +96,33 @@ namespace _24._01._22_Extensions
         {
             /*
                 Завдання 2:
-                    Створити метод розширення для класу String, який буде шифрувати рядок використовуючи ключ (передається в параметри). Шифрування відбувається шляхом здвигу символа по в таблиці ASCII.
+                    Створити метод розширення для класу String, який буде шифрувати рядок використовуючи ключ (передається в параметри). 
+                    Шифрування відбувається шляхом здвигу символа по в таблиці ASCII.
                         Привіт – 3
                         Сткдкф
             */
+
+            Console.WriteLine("Enter line: ");
+            string line = Console.ReadLine();
+
+            Console.WriteLine("Enter key: ");
+            int key = int.Parse(Console.ReadLine());
+
+            StringBuilder encryptedText = new StringBuilder();
+
+            foreach (char character in line)
+            {
+                if (char.IsLetter(character))
+                {
+                    char encryptedChar = (char)(character + key);
+
+                    if (char.IsLower(character) && encryptedChar > 'z') { encryptedChar = (char)(encryptedChar - 26); }
+                    else if (char.IsUpper(character) && encryptedChar > 'Z') { encryptedChar = (char)(encryptedChar - 26); }
+
+                    encryptedText.Append(encryptedChar);
+                }
+                else { encryptedText.Append(character); }
+            }
         }
         static void Task3()
         {

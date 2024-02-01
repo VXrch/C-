@@ -1,40 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
-using System.Reflection;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace _24._01._17_Delegates
 {
     internal class Program
     {
-        public delegate double CalculationOperation(object[] array);
-        public delegate void ModificationOperation(ref object[] array);
+        public delegate int CalculationOperation();
+        public delegate void ModificationOperation();
+        public delegate void MenuDelegate();
 
         public class ArrayWork
         {
-            void Swap(ref object[] array, int index1, int index2)
+            int[] array;
+            public ArrayWork()
             {
-                object temp = array[index1];
+                array = new int[10] { -100, 23, 98, -4, 54, 15, 7, 0, 7, 34 };
+            }
+
+            void Swap(int index1, int index2)
+            {
+                int temp = array[index1];
                 array[index1] = array[index2];
                 array[index2] = temp;
             }
-            bool IsPrime(double number)
+            bool IsPrime(int number)
             {
                 try
                 {
-                    if (number <= 1 || number % 1 != 0)
+                    if (number <= 1)
                         return false;
 
-                    int intNumber = (int)number;
-
-                    for (int i = 2; i <= Math.Sqrt(intNumber); i++)
+                    for (int i = 2; i <= Math.Sqrt(number); i++)
                     {
-                        if (intNumber % i == 0)
+                        if (number % i == 0)
                             return false;
                     }
 
@@ -45,7 +43,7 @@ namespace _24._01._17_Delegates
                     throw ex;
                 }
             }
-            public static void Show(object[] array)
+            public void Show()
             {
                 Console.WriteLine("Array: ");
 
@@ -57,81 +55,137 @@ namespace _24._01._17_Delegates
                 Console.WriteLine();
             }
 
-            public double NegativeElements(object[] array)
+            public int NegativeElements()
             {
-                return array.Count(x => (double)x < 0);
+                return array.Count(x => x < 0);
             }
-            public double PrimeNumbers(object[] array)
+            public int PrimeNumbers()
             {
-                return array.Count(x => IsPrime((double)x));
+                int count = 0;
+                foreach (var item in array)
+                {
+                    if (IsPrime(item)) count++;
+                }
+                return count;
             }
-            public double SumElements(object[] array)
+            public int SumElements()
             {
-                return array.Sum(x => (double)x);
+                int sum = 0;
+                foreach (var item in array)
+                {
+                    if (IsPrime(item)) sum += item;
+                }
+                return sum;
             }
 
-            public void ChangeNegativeToZero(ref object[] array)
+            public void ChangeNegativeToZero()
             {
                 for (int i = 0; i < array.Length; i++)
                 {
-                    if ((double)array[i] < 0) array[i] = 0;
+                    if (array[i] < 0) array[i] = 0;
                 }
             }
-            public void Sort(ref object[] array)
+            public void Sort()
             {
                 for (int i = 0; i < array.Length; i++)
                 {
                     for (int j = 0; j < array.Length - 1; j++)
                     {
-                        if (IsPrime((double)array[j]) && !IsPrime((double)array[j + i])) { Swap(ref array, j, j + 1); }
-                        else if (IsPrime((double)array[j]) == IsPrime((double)array[j + 1]))
+                        if (IsPrime(array[j]) && !IsPrime(array[j + i])) { Swap(j, j + 1); }
+                        else if (IsPrime(array[j]) == IsPrime(array[j + 1]))
                         {
-                            if (Convert.ToDouble(array[j]) > Convert.ToDouble(array[j + 1])) { Swap(ref array, j, j + 1); }
+                            if (array[j] > array[j + 1]) { Swap(j, j + 1); }
                         }
                     }
                 }
             }
         }
-        static public class Menu
+        public class Menu
         {
-            static public int StartMenu()
+            ArrayWork arrayWork = new ArrayWork();
+            public void StartMenu()
+            {
+                bool ext = false;
+
+                while (!ext) 
+                {
+                    try
+                    {
+                        Console.Clear();
+                        Console.WriteLine();
+                        arrayWork.Show();
+                        Console.WriteLine();
+
+                        Console.WriteLine("|=|=|=|   MENU   |=|=|=|");
+                        Console.WriteLine("[0] - Exit");
+                        Console.WriteLine("[1] - Calculate");
+                        Console.WriteLine("[2] - Change");
+                        Console.WriteLine();
+
+                        Console.Write("(/^.^)/~  "); int res = int.Parse(Console.ReadLine());
+
+                        MenuDelegate[] md = new MenuDelegate[]
+                        {
+                            delegate(){ ext = true; }, CalculateMenu, ChangeMenu,
+                        };
+                        md[res]?.Invoke();
+                    }
+                    catch (Exception ex) { Console.WriteLine(ex.Message); }
+                }                
+            }
+            public void CalculateMenu()
             {
                 try
                 {
-                    Console.WriteLine("|=|=|=|   MENU   |=|=|=|");
-                    Console.WriteLine("[0] - Exit");
-                    Console.WriteLine("[1] - Calculate");
-                    Console.WriteLine("[2] - Change");
+                    Console.Clear();
+                    Console.WriteLine();
+                    arrayWork.Show();
                     Console.WriteLine();
 
+                    Console.WriteLine("|=|=|=|   CALCULATE MENU   |=|=|=|");
+                    Console.WriteLine("[0] - Exit");
+                    Console.WriteLine("[1] - Calculate the number of negative elements");
+                    Console.WriteLine("[2] - Determine the sum of all elements");
+                    Console.WriteLine("[3] - Calculate the number of primes");
+                    Console.WriteLine();
+
+                    CalculationOperation[] co_delegates = new CalculationOperation[]
+                    {
+                    delegate(){ return 0; }, arrayWork.PrimeNumbers, arrayWork.SumElements, arrayWork.NegativeElements
+                    };
+
                     Console.Write("(/^.^)/~  "); int res = int.Parse(Console.ReadLine());
-                    return res;
+                    Console.WriteLine($"Result: [ {co_delegates[res]?.Invoke()} ]");
+                    Console.ReadKey();
                 }
                 catch (Exception ex) { throw ex; }
             }
-            static public int CalculateMenu()
+            public void ChangeMenu()
             {
-                Console.WriteLine("|=|=|=|   CALCULATE MENU   |=|=|=|");
-                Console.WriteLine("[0] - Exit");
-                Console.WriteLine("[1] - Calculate the number of negative elements");
-                Console.WriteLine("[2] - Determine the sum of all elements");
-                Console.WriteLine("[3] - Calculate the number of primes");
-                Console.WriteLine();
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine();
+                    arrayWork.Show();
+                    Console.WriteLine();
 
-                Console.Write("(/^.^)/~  "); int res = int.Parse(Console.ReadLine());
-                return res;
-            }
-            static public int ChangeMenu()
-            {
-                Console.WriteLine("|=|=|=|   CHANGE MENU   |=|=|=|");
-                Console.WriteLine("[0] - Exit");
-                Console.WriteLine("[1] - Change all negative elements to 0");
-                Console.WriteLine("[2] - Sort the array");
-                Console.WriteLine("[3] - Move all even elements to the beginning, respectively, odd elements will be at the end");
-                Console.WriteLine();
+                    Console.WriteLine("|=|=|=|   CHANGE MENU   |=|=|=|");
+                    Console.WriteLine("[0] - Exit");
+                    Console.WriteLine("[1] - Change all negative elements to 0");
+                    Console.WriteLine("[2] - Sort the array");
+                    Console.WriteLine();
 
-                Console.Write("(/^.^)/~  "); int res = int.Parse(Console.ReadLine());
-                return res;
+                    ModificationOperation[] mo_delegate = new ModificationOperation[]
+                    {
+                        delegate(){ return; }, arrayWork.ChangeNegativeToZero, arrayWork.Sort,
+                    };
+
+                    Console.Write("(/^.^)/~  "); int res = int.Parse(Console.ReadLine());
+                    mo_delegate[res]?.Invoke();
+                    Console.WriteLine("Completed!");
+                    Console.ReadKey();
+                }
+                catch (Exception ex) { throw ex; }
             }
         }
         static void Main(string[] args)
@@ -161,24 +215,15 @@ namespace _24._01._17_Delegates
                     Реалізувати валідацію вибраного номера операції. 
             */
 
+            Menu menu = new Menu();
+            menu.StartMenu();
 
-            ArrayWork aw = new ArrayWork();
-            int[] array = { -2, 5, 8, -3, 0, 7, 10, -1 };
 
-            Random rand = new Random();
-            for (int i = 0; i < 10; i++)
-            {
-                int randomValue = rand.Next(1, 20);
-                array.Append(randomValue);
-            }
 
-            CalculationOperation co_delegate = aw.NegativeElements;
-            co_delegate += aw.PrimeNumbers;
-            co_delegate += aw.SumElements;
 
-            ModificationOperation mo_delegate = aw.ChangeNegativeToZero;
-            mo_delegate = aw.Sort;
-            
+
+
+
         }
     }
 }
