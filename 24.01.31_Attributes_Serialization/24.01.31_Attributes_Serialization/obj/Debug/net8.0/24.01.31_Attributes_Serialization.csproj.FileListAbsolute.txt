@@ -1,0 +1,15 @@
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\bin\Debug\net8.0\24.01.31_Attributes_Serialization.exe
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\bin\Debug\net8.0\24.01.31_Attributes_Serialization.deps.json
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\bin\Debug\net8.0\24.01.31_Attributes_Serialization.runtimeconfig.json
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\bin\Debug\net8.0\24.01.31_Attributes_Serialization.dll
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\bin\Debug\net8.0\24.01.31_Attributes_Serialization.pdb
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\obj\Debug\net8.0\24.01.31_Attributes_Serialization.GeneratedMSBuildEditorConfig.editorconfig
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\obj\Debug\net8.0\24.01.31_Attributes_Serialization.AssemblyInfoInputs.cache
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\obj\Debug\net8.0\24.01.31_Attributes_Serialization.AssemblyInfo.cs
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\obj\Debug\net8.0\24.01.31_Attributes_Serialization.csproj.CoreCompileInputs.cache
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\obj\Debug\net8.0\24.01.31_Attributes_Serialization.sourcelink.json
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\obj\Debug\net8.0\24.01.31_Attributes_Serialization.dll
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\obj\Debug\net8.0\refint\24.01.31_Attributes_Serialization.dll
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\obj\Debug\net8.0\24.01.31_Attributes_Serialization.pdb
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\obj\Debug\net8.0\24.01.31_Attributes_Serialization.genruntimeconfig.cache
+D:\ForAll\C#\24.01.31_Attributes_Serialization\24.01.31_Attributes_Serialization\obj\Debug\net8.0\ref\24.01.31_Attributes_Serialization.dll

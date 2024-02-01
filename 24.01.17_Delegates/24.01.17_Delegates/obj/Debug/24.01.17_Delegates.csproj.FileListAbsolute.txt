@@ -1,0 +1,7 @@
+D:\ForAll\C#\24.01.17_Delegates\24.01.17_Delegates\bin\Debug\24.01.17_Delegates.exe.config
+D:\ForAll\C#\24.01.17_Delegates\24.01.17_Delegates\bin\Debug\24.01.17_Delegates.exe
+D:\ForAll\C#\24.01.17_Delegates\24.01.17_Delegates\bin\Debug\24.01.17_Delegates.pdb
+D:\ForAll\C#\24.01.17_Delegates\24.01.17_Delegates\obj\Debug\24.01.17_Delegates.csproj.AssemblyReference.cache
+D:\ForAll\C#\24.01.17_Delegates\24.01.17_Delegates\obj\Debug\24.01.17_Delegates.csproj.CoreCompileInputs.cache
+D:\ForAll\C#\24.01.17_Delegates\24.01.17_Delegates\obj\Debug\24.01.17_Delegates.exe
+D:\ForAll\C#\24.01.17_Delegates\24.01.17_Delegates\obj\Debug\24.01.17_Delegates.pdb
