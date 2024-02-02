@@ -1,0 +1,15 @@
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\bin\Debug\net7.0\24.02.02_Coursework.exe
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\bin\Debug\net7.0\24.02.02_Coursework.deps.json
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\bin\Debug\net7.0\24.02.02_Coursework.runtimeconfig.json
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\bin\Debug\net7.0\24.02.02_Coursework.dll
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\bin\Debug\net7.0\24.02.02_Coursework.pdb
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\obj\Debug\net7.0\24.02.02_Coursework.csproj.AssemblyReference.cache
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\obj\Debug\net7.0\24.02.02_Coursework.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\obj\Debug\net7.0\24.02.02_Coursework.AssemblyInfoInputs.cache
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\obj\Debug\net7.0\24.02.02_Coursework.AssemblyInfo.cs
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\obj\Debug\net7.0\24.02.02_Coursework.csproj.CoreCompileInputs.cache
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\obj\Debug\net7.0\24.02.02_Coursework.dll
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\obj\Debug\net7.0\refint\24.02.02_Coursework.dll
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\obj\Debug\net7.0\24.02.02_Coursework.pdb
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\obj\Debug\net7.0\24.02.02_Coursework.genruntimeconfig.cache
+C:\Users\dev\Desktop\C#\24.02.02_Coursework\24.02.02_Coursework\obj\Debug\net7.0\ref\24.02.02_Coursework.dll

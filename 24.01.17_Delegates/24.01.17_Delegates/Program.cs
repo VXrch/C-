@@ -217,13 +217,6 @@ namespace _24._01._17_Delegates
 
             Menu menu = new Menu();
             menu.StartMenu();
-
-
-
-
-
-
-
         }
     }
 }
