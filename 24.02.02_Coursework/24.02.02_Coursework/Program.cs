@@ -75,6 +75,7 @@ namespace _24._02._02_Coursework
             }
         }
 
+        [Serializable]
         class User : IEquatable<User>
         {
             string _name;
@@ -149,6 +150,8 @@ namespace _24._02._02_Coursework
                 return Name == other.Name && Password == other.Password;
             }
         }
+
+        [Serializable]
         class Game
         {
             public enum Difficulties { Easy, Normal, Medium, Difficult, Impossible }
@@ -699,7 +702,6 @@ namespace _24._02._02_Coursework
                 Console.ReadKey();
             }
         }
-
         class Menu
         {
             FirstAndFinal _startEnd;
