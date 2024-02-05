@@ -11,7 +11,7 @@ namespace _24._02._02_Coursework
         class Exit : Exception { }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
+
         class Question
         {
             public string question { get; set; }
@@ -22,7 +22,7 @@ namespace _24._02._02_Coursework
             public string Incorrect_answer_3 { get; set; }
 
             public Question() { question = Correct_answer = Incorrect_answer_1 = Incorrect_answer_2 = Incorrect_answer_3 = string.Empty; }
-            public Question(string question, string correct_answer, string incorrect_answer_1, string incorrect_answer_2, string incorrect_answer_3) 
+            public Question(string question, string correct_answer, string incorrect_answer_1, string incorrect_answer_2, string incorrect_answer_3)
             { this.question = question; Correct_answer = correct_answer; Incorrect_answer_1 = incorrect_answer_1; Incorrect_answer_2 = incorrect_answer_2; Incorrect_answer_3 = incorrect_answer_3; }
 
             public List<string> GetAnswers()
@@ -79,17 +79,17 @@ namespace _24._02._02_Coursework
         class User : IEquatable<User>
         {
             string _name;
-            public string Name 
-            { 
-                get { return _name; } 
-                set { if (string.IsNullOrEmpty(value)) { throw new ArgumentNullException(); } else _name = value; } 
+            public string Name
+            {
+                get { return _name; }
+                set { if (string.IsNullOrEmpty(value)) { throw new ArgumentNullException(); } else _name = value; }
             }
 
             string _password;
-            public string Password 
-            { 
-                get { return _password; } 
-                set { if (string.IsNullOrEmpty(value) || !Menu.IsCorrectPassword(value)) { throw new ArgumentNullException(); } else _password = value; } 
+            public string Password
+            {
+                get { return _password; }
+                set { if (string.IsNullOrEmpty(value) || !Menu.IsCorrectPassword(value)) { throw new ArgumentNullException(); } else _password = value; }
             }
 
             public string identString { get; }
@@ -97,12 +97,12 @@ namespace _24._02._02_Coursework
             public Statistic Stats { get; set; }
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            
+
             public User() { Name = "Guest"; Stats = new Statistic(); identString = GenerateIdentString(); }
 
             public User(string name) : this() { Name = name; }
             public User(string name, Statistic stats) { Name = name; Stats = stats; identString = GenerateIdentString(); }
-            public User(string name, Statistic stats, string identString, string identificationString) { Name = name; Stats = stats; identString = identificationString; }
+            public User(string name, Statistic stats, string identificationString) { Name = name; Stats = stats; identString = identificationString; }
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -147,7 +147,10 @@ namespace _24._02._02_Coursework
             public bool Equals(User other)
             {
                 if (other == null) return false;
-                return Name == other.Name && Password == other.Password;
+
+                if (GetType() != other.GetType()) return false;
+
+                return string.Equals(Name, other.Name) && string.Equals(Password, other.Password);
             }
         }
 
@@ -158,10 +161,10 @@ namespace _24._02._02_Coursework
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            public Game() { Subject = "None"; Questions = new List<Question>(); Stats = new Statistic(); Difficultie = Difficulties.Easy; identString = GenerateIdentString(); identString2 = GenerateIdentString(); }
+            public Game() { Subject = "None"; Questions = new List<Question>(); Stats = new Statistic(); Difficultie = Difficulties.Easy; identString = GenerateIdentString(); }
             public Game(string subject) : this() { Subject = subject; }
             public Game(string subject, List<Question> questions, Statistic stats, Difficulties difficultie)
-            { Subject = subject; Questions = questions; Stats = stats; Difficultie = difficultie; identString = GenerateIdentString(); identString2 = GenerateIdentString(); }
+            { Subject = subject; Questions = questions; Stats = stats; Difficultie = difficultie; identString = GenerateIdentString(); }
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -174,7 +177,6 @@ namespace _24._02._02_Coursework
             public Difficulties Difficultie { get; set; }
 
             public readonly string identString;
-            public readonly string identString2;
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -194,9 +196,9 @@ namespace _24._02._02_Coursework
                     {
                         string userInput = Console.ReadLine();
 
-                        if (Enum.TryParse<Difficulties>(userInput, out var chosenDifficulty)) 
-                        { 
-                            return chosenDifficulty; 
+                        if (Enum.TryParse<Difficulties>(userInput, out var chosenDifficulty))
+                        {
+                            return chosenDifficulty;
                         }
                         else { Console.WriteLine("Invalid input. Please enter a number corresponding to the difficulty!"); }
                     }
@@ -240,7 +242,6 @@ namespace _24._02._02_Coursework
         {
             public FirstAndFinal()
             {
-                TouchedUsers = TouchedGames = new List<string>();
                 Users = new List<User>();
                 Games = new List<Game>();
 
@@ -250,13 +251,11 @@ namespace _24._02._02_Coursework
 
             // ---------------------------------------
 
-            public List<User> Users { get; }
-            public List<string> TouchedUsers { get; }
+            public List<User> Users { get; set; }
 
             // ---------------------------------------
 
-            public List<Game> Games { get; }
-            public List<string> TouchedGames { get; }
+            public List<Game> Games { get; set; }
 
             // ---------------------------------------
 
@@ -268,27 +267,13 @@ namespace _24._02._02_Coursework
             {
                 try
                 {
-                    string projectDirectory = Directory.GetCurrentDirectory();
-                    string folderName = "UsersFolder";
+                    string filename = "AllUsers.json";
 
-                    string folderPath = Path.Combine(projectDirectory, folderName);
-
-                    if (!Directory.Exists(folderPath))
+                    if (File.Exists(filename))
                     {
-                        Directory.CreateDirectory(folderPath);
-                    }
+                        string json = File.ReadAllText(filename);
 
-                    string[] jsonFiles = Directory.GetFiles(folderPath, "*.json");
-
-                    foreach (var jsonFile in jsonFiles)
-                    {
-                        try
-                        {
-                            string jsonContent = File.ReadAllText(jsonFile);
-                            User loadedUser = JsonSerializer.Deserialize<User>(jsonContent);
-                            Users.Add(loadedUser);
-                        }
-                        catch (Exception ex) { Console.WriteLine($"Error loading data from file [{jsonFile}] : {ex.Message}"); }
+                        Users = JsonSerializer.Deserialize<List<User>>(json);
                     }
                 }
                 catch (Exception ex)
@@ -298,81 +283,38 @@ namespace _24._02._02_Coursework
                     Console.WriteLine();
                 }
             }
-            void GamesFileWorkLoad()
-            {
-                try
-                {
-                    string projectDirectory = Directory.GetCurrentDirectory();
-                    string folderName = "GamesFolder";
-
-                    string folderPath = Path.Combine(projectDirectory, folderName);
-
-                    if (!Directory.Exists(folderPath))
-                    {
-                        Directory.CreateDirectory(folderPath);
-                    }
-
-                    string[] jsonFiles = Directory.GetFiles(folderPath, "*.json");
-
-                    foreach (var jsonFile in jsonFiles)
-                    {
-                        try
-                        {
-                            string jsonContent = File.ReadAllText(jsonFile);
-                            Game loadedGame = JsonSerializer.Deserialize<Game>(jsonContent);
-                            Games.Add(loadedGame);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"Error loading data from file [{jsonFile}] : {ex.Message}");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("   !!!  EXCEPTION  !!! \n" + ex.Message);
-                    Console.WriteLine();
-                }
-            }
-
             void UsersFileWorkSave()
             {
                 try
                 {
-                    string projectDirectory = Directory.GetCurrentDirectory();
-                    string folderName = "UsersFolder";
+                    int index = FindUser(in_game_user);
+                    Users[index] = in_game_user;
 
-                    string folderPath = Path.Combine(projectDirectory, folderName);
+                    string filename = "AllUsers.json";
 
-                    if (!Directory.Exists(folderPath))
+                    string json = JsonSerializer.Serialize(Users, new JsonSerializerOptions { WriteIndented = true });
+
+                    File.WriteAllText(filename, json);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine(@"   /~~~/  EXCEPTION  \~~~\ " + '\n' + ex.Message);
+                    Console.WriteLine();
+                }
+            }
+
+            void GamesFileWorkLoad()
+            {
+                try
+                {
+                    string filename = "AllGames.json";
+
+                    if (File.Exists(filename))
                     {
-                        Directory.CreateDirectory(folderPath);
-                    }
+                        string json = File.ReadAllText(filename);
 
-                    List<User> to_write_users = new List<User>();
-                    for (int i = 0; i < TouchedUsers.Count; i++)
-                    {
-                        to_write_users.Add(FindUser(TouchedUsers[i]));
-                    }
-
-                    // Delete ONLY if exist
-                    for (int i = 0; i < TouchedUsers.Count; i++)
-                    {
-                        string fileName = Path.Combine(folderPath, $"{to_write_users[i].identString}.json");
-                        string filePath = Path.Combine(folderPath, fileName);
-
-                        if (File.Exists(filePath))
-                        {
-                            File.Delete(filePath);
-                        }
-                    }
-                    
-                    string filename;
-                    foreach (var ur in to_write_users)
-                    {
-                        filename = Path.Combine(folderPath, $"{ur.Name}_{ur.identString}.json");
-                        ur.SaveToJson(filename);
+                        Games = JsonSerializer.Deserialize<List<Game>>(json);
                     }
                 }
                 catch (Exception ex)
@@ -386,57 +328,11 @@ namespace _24._02._02_Coursework
             {
                 try
                 {
-                    /*string projectDirectory = Directory.GetCurrentDirectory();
-                    string folderName = "GamesFolder";
+                    string filename = "AllGames.json";
 
-                    string folderPath = Path.Combine(projectDirectory, folderName);
+                    string json = JsonSerializer.Serialize(Games, new JsonSerializerOptions { WriteIndented = true });
 
-                    if (!Directory.Exists(folderPath))
-                    {
-                        Directory.CreateDirectory(folderPath);
-                    }
-
-                    string filename;
-                    foreach (var gm in Games)
-                    {
-                        filename = Path.Combine(folderPath, $"{gm.identString}_{gm.identString2}.json");
-                        gm.SaveToJson(filename);
-                    }*/
-
-                    string projectDirectory = Directory.GetCurrentDirectory();
-                    string folderName = "GamesFolder";
-
-                    string folderPath = Path.Combine(projectDirectory, folderName);
-
-                    if (!Directory.Exists(folderPath))
-                    {
-                        Directory.CreateDirectory(folderPath);
-                    }
-
-                    List<Game> to_write_games = new List<Game>();
-                    for (int i = 0; i < TouchedGames.Count; i++)
-                    {
-                        to_write_games.Add(FindGame(TouchedGames[i]));
-                    }
-
-                    // Delete ONLY if exist
-                    for (int i = 0; i < TouchedGames.Count; i++)
-                    {
-                        string fileName = Path.Combine(folderPath, $"{to_write_games[i].identString}_{to_write_games[i].identString2}.json");
-                        string filePath = Path.Combine(folderPath, fileName);
-
-                        if (File.Exists(filePath))
-                        {
-                            File.Delete(filePath);
-                        }
-                    }
-
-                    string filename;
-                    foreach (var gm in to_write_games)
-                    {
-                        filename = Path.Combine(folderPath, $"{gm.identString}_{gm.identString2}.json");
-                        gm.SaveToJson(filename);
-                    }
+                    File.WriteAllText(filename, json);
                 }
                 catch (Exception ex)
                 {
@@ -457,36 +353,14 @@ namespace _24._02._02_Coursework
                 }
                 return false;
             }
-            int FindUser (User user)
+
+            int FindUser(User user)
             {
                 for (int i = 0; i < Users.Count; i++)
                 {
                     if (Users[i].Name == user.Name && Users[i].Password == user.Password)
                     {
                         return i;
-                    }
-                }
-                throw new Exception();
-            }
-
-            User FindUser (string identstring)
-            {
-                foreach(var ur in Users) 
-                {
-                    if (ur.identString == identstring)
-                    {
-                        return ur;
-                    }
-                }
-                throw new Exception();
-            }
-            Game FindGame (string identstring)
-            {
-                foreach(var gm in Games)
-                {
-                    if (gm.identString == identstring)
-                    {
-                        return gm;
                     }
                 }
                 throw new Exception();
@@ -542,7 +416,6 @@ namespace _24._02._02_Coursework
                         if (IsExist(user))
                         {
                             in_game_user = Users[FindUser(user)];
-                            TouchedUsers.Add(in_game_user.identString);
                             return;
                         }
 
@@ -555,6 +428,8 @@ namespace _24._02._02_Coursework
             }
             void Register()
             {
+                bool correct = true;
+
                 User user = new User();
                 while (true)
                 {
@@ -573,13 +448,15 @@ namespace _24._02._02_Coursework
                             else { Console.WriteLine("Incorrect password! Try again!"); Console.ReadKey(); Console.Clear(); }
                         }
 
-                        if (Users == null) { Console.WriteLine("Empty data!"); }
-                        if (Users.Equals(user)) { Console.WriteLine("This user already exists! You can login or create a new account!"); }
-                        else
+                        if (Users == null) { Console.WriteLine("Empty data!"); correct = false; }
+                        for (int i = 0; i < Users.Count; i++)
+                        {
+                            if (user.Equals(Users[i])) { Console.WriteLine("This user already exists! You can login or create a new account!"); correct = false; break; }
+                        }
+
+                        if (correct)
                         {
                             in_game_user = user;
-                            TouchedUsers.Add(in_game_user.identString);
-
                             Users.Add(in_game_user);
 
                             Console.WriteLine("You have successfully registered!");
@@ -648,7 +525,7 @@ namespace _24._02._02_Coursework
                 {
                     for (int i = 0; i < Games.Count; i++)
                     {
-                        if (Games[i].identString == game.identString && Games[i].identString2 == game.identString2)
+                        if (Games[i].identString == game.identString)
                         {
                             Games[i].Stats.Wins++;
                             Games[i].Stats.Games++;
@@ -665,7 +542,7 @@ namespace _24._02._02_Coursework
                 {
                     for (int i = 0; i < Games.Count; i++)
                     {
-                        if (Games[i].identString == game.identString && Games[i].identString2 == game.identString2)
+                        if (Games[i].identString == game.identString)
                         {
                             Games[i].Stats.Loses++;
                             Games[i].Stats.Games++;
@@ -800,7 +677,7 @@ namespace _24._02._02_Coursework
 
                 Console.WriteLine($"The game's about to start. There will be {game.Questions.Count} questions! Good luck!");
 
-                Quizz(game, ref points); 
+                Quizz(game, ref points);
                 GameOver(game, points);
             }
 
@@ -858,14 +735,9 @@ namespace _24._02._02_Coursework
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            public void Final()
-            {
-                _startEnd.Final();
-            }
-
             public void GameMenu()
             {
-                if (_startEnd.in_game_user == null) return; 
+                if (_startEnd.in_game_user == null) return;
 
                 bool exit = false;
                 while (!exit)
@@ -912,5 +784,5 @@ namespace _24._02._02_Coursework
             Menu menu = new Menu();
             menu.GameMenu();
         }
-    }   
+    }
 }
