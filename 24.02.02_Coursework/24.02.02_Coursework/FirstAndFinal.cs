@@ -17,11 +17,7 @@ namespace _24._02._02_Coursework
 
         public List<User> Users { get; set; }
 
-        // ---------------------------------------
-
         public List<Game> Games { get; set; }
-
-        // ---------------------------------------
 
         public User in_game_user { get; set; }
 

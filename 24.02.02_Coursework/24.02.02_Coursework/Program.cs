@@ -6,6 +6,7 @@ namespace _24._02._02_Coursework
     delegate void GameModeDelegate();
 
     class Exit : Exception { }
+    class AlredyExist : Exception { }
 
     internal class Program
     {
