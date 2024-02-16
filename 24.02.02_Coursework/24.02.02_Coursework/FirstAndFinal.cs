@@ -2,24 +2,9 @@
 
 namespace _24._02._02_Coursework
 {
-    class FirstAndFinal
+    class UsersWork
     {
-        public FirstAndFinal()
-        {
-            Users = new List<User>();
-            Games = new List<Game>();
-
-            in_game_user = null;
-            First();
-        }
-
-        // ---------------------------------------
-
         public List<User> Users { get; set; }
-
-        public List<Game> Games { get; set; }
-
-        public User in_game_user { get; set; }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -66,6 +51,161 @@ namespace _24._02._02_Coursework
             }
         }
 
+        // ----------
+
+        void LogIn()
+        {
+            User user = new User();
+            while (true)
+            {
+                Console.Clear();
+                try
+                {
+                    Console.WriteLine("Enter your nickname (or [0] to exit): "); user.Name = Console.ReadLine();
+                    if (user.Name == "0") { throw new Exit(); }
+
+                    Console.Write("(~0_0)~ password ~  "); user.Password = Console.ReadLine();
+
+                    if (IsExist(user))
+                    {
+                        in_game_user = Users[FindUser(user)];
+                        return;
+                    }
+
+                    Console.WriteLine("No such user was found!");
+                    Console.ReadKey();
+                }
+                catch (Exit) { throw new Exit(); }
+                catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
+            }
+        }
+
+        void Register()
+        {
+            bool correct = true;
+
+            User user = new User();
+            while (true)
+            {
+                Console.Clear();
+                try
+                {
+                    if (Users == null) { Console.WriteLine("Empty data!"); correct = false; }
+
+                    Console.WriteLine("Enter your nickname (or [0] to exit): "); string name = Console.ReadLine();
+                    if (name == "0") { throw new Exit(); } else { user.Name = name; }
+
+                    user.Password = User.FillPassword();
+
+                    for (int i = 0; i < Users.Count; i++)
+                    {
+                        if (user.Equals(Users[i]))
+                        {
+                            Console.WriteLine("This user already exists! You can log in or create a new account!");
+                            correct = false; Console.ReadKey(); Console.Clear(); break;
+                        }
+                    }
+
+                    if (correct)
+                    {
+                        in_game_user = user;
+                        Users.Add(in_game_user);
+
+                        Console.WriteLine("You have successfully registered!");
+                        Console.ReadKey(); Console.Clear();
+                        return;
+                    }
+                }
+                catch (Exit) { throw new Exception(); }
+                catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
+            }
+        }
+
+        void EnterAsAGuest()
+        {
+            try
+            {
+                Console.WriteLine("If you log in as a guest, your data will not be saved after logging out.");
+                Console.WriteLine("Are you sure you want to continue?");
+
+                if (Menu.IsContinue()) { in_game_user = new User("Guest"); }
+                else { throw new Exit(); }
+            }
+            catch (Exit) { throw; }
+            catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
+        }
+
+        // ----------
+
+        public void ShowAllUsers()
+        {
+            if (Users.Count == 0) { Console.WriteLine("Games list empty!"); Console.ReadKey(); }
+            else
+            {
+                for (int i = 0; i < Users.Count; i++)
+                {
+                    Console.WriteLine(Users[i].Name + " | " + Users[i].Password);
+                }
+            }
+            Console.ReadKey();
+        }
+
+        bool IsExist(User user)
+        {
+            foreach (var ur in Users)
+            {
+                if (ur.Name == user.Name && ur.Password == user.Password)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        int FindUser(User user)
+        {
+            for (int i = 0; i < Users.Count; i++)
+            {
+                if (Users[i].Name == user.Name && Users[i].Password == user.Password)
+                {
+                    return i;
+                }
+            }
+            throw new Exception();
+        }
+    }
+
+    class FirstAndFinal
+    {
+        public FirstAndFinal()
+        {
+            Users = new List<User>();
+            Games = new List<Game>();
+
+            in_game_user = null;
+            First();
+        }
+
+        // ---------------------------------------
+
+        public List<Game> Games { get; set; }
+
+        public User in_game_user { get; set; }
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        void LoadInfo()
+        {
+            UsersFileWorkLoad();
+            GamesFileWorkLoad();
+        }
+        public void Final()
+        {
+            UsersFileWorkSave();
+            GamesFileWorkSave();
+        }
+
+
         void GamesFileWorkLoad()
         {
             try
@@ -104,42 +244,34 @@ namespace _24._02._02_Coursework
             }
         }
 
+        // ----------
+
+        void SubjectsFileWorkLoad()
+        {
+            try
+            {
+                string filename = "AllSubjects.json";
+
+                if (File.Exists(filename))
+                {
+                    string json = File.ReadAllText(filename);
+
+                    //Users = JsonSerializer.Deserialize<List<User>>(json);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                Console.WriteLine("   !!!  EXCEPTION  !!! \n" + ex.Message);
+                Console.WriteLine();
+            }
+        }
+        void SubjectsFileWorkSave()
+        {
+
+        }
+
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        bool IsExist(User user)
-        {
-            foreach (var ur in Users)
-            {
-                if (ur.Name == user.Name && ur.Password == user.Password)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        bool IsValid(params string[] value)
-        {
-            foreach (var item in value)
-            {
-                if (string.IsNullOrEmpty(item) || string.IsNullOrWhiteSpace(item))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        int FindUser(User user)
-        {
-            for (int i = 0; i < Users.Count; i++)
-            {
-                if (Users[i].Name == user.Name && Users[i].Password == user.Password)
-                {
-                    return i;
-                }
-            }
-            throw new Exception();
-        }
 
         public void CreateNewGame()
         {
@@ -148,38 +280,20 @@ namespace _24._02._02_Coursework
                 Game newGame = new Game();
                 bool correct_created = false;
 
-                Console.WriteLine("Enter game subject: "); newGame.Subject = Console.ReadLine();
+                Console.WriteLine("Enter game subject: "); newGame.subject = Subject.MakeSubject();
                 Console.WriteLine("Enter game difficultie: "); newGame.Difficultie = Game.ChooseDifficultie();
-
-                string t1, t2, t3, t4;
-                string t0 = "";
 
                 while (true)
                 {
-                    Question temp = new Question();
-
-                    Console.Clear();
-                    Console.Write("Enter question (or [0] to exit): "); t0 = Console.ReadLine();
-                    if (t0 == "0") { break; }
-
-                    Console.Write("Enter correct answer: "); t1 = Console.ReadLine();
-
-                    Console.Write("Enter incorrect answer [1]: "); t2 = Console.ReadLine();
-                    Console.Write("Enter incorrect answer [2]: "); t3 = Console.ReadLine();
-                    Console.Write("Enter incorrect answer [3]: "); t4 = Console.ReadLine();
-
-                    if (IsValid(t0, t1, t2, t3, t4))
+                    try
                     {
-                        temp.question = t0;
-                        temp.Correct_answer = t1;
-                        temp.Incorrect_answer_1 = t2;
-                        temp.Incorrect_answer_2 = t3;
-                        temp.Incorrect_answer_3 = t4;
-
+                        Question temp = Question.MakeQuestion();
                         newGame.Questions.Add(temp);
                         correct_created = true;
+
+                        Console.WriteLine("- - - - - - - - - - - - - - - - - -");
                     }
-                    Console.WriteLine("- - - - - - - - - - - - - - - - - -");
+                    catch (Exit) { break; }                    
                 }
                 if (correct_created) { Games.Add(newGame); }
             }
@@ -188,95 +302,12 @@ namespace _24._02._02_Coursework
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        void LogIn()
-        {
-            User user = new User();
-            while (true)
-            {
-                Console.Clear();
-                try
-                {
-                    Console.WriteLine("Enter your nickname (or [0] to exit): "); user.Name = Console.ReadLine();
-                    if (user.Name == "0") { throw new Exit(); }
-
-                    Console.Write("(~0_0)~ password ~  "); user.Password = Console.ReadLine();
-
-                    if (IsExist(user))
-                    {
-                        in_game_user = Users[FindUser(user)];
-                        return;
-                    }
-
-                    Console.WriteLine("No such user was found!");
-                    Console.ReadKey();
-                }
-                catch (Exit) { throw new Exit(); }
-                catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
-            }
-        }
-        void Register()
-        {
-            bool correct = true;
-
-            User user = new User();
-            while (true)
-            {
-                Console.Clear();
-                try
-                {
-                    if (Users == null) { Console.WriteLine("Empty data!"); correct = false; }
-
-                    Console.WriteLine("Enter your nickname (or [0] to exit): "); string name = Console.ReadLine();
-                    if (name == "0") { throw new Exit(); } else { user.Name = name; }
-
-                    while (true)
-                    {
-                        Console.WriteLine("Enter your password (8 symbhols, big letters, small letters and numbers): ");
-                        Console.WriteLine("(~0_0)~  "); string line = Console.ReadLine();
-
-                        if (Menu.IsCorrectPassword(line)) { user.Password = line; break; }
-                        else { Console.WriteLine("Incorrect password! Try again!"); Console.ReadKey(); Console.Clear(); }
-                    }
-                    
-                    for (int i = 0; i < Users.Count; i++)
-                    {
-                        if (user.Equals(Users[i])) { Console.WriteLine("This user already exists! You can login or create a new account!"); correct = false; Console.ReadKey(); Console.Clear(); break; }
-                    }
-
-                    if (correct)
-                    {
-                        in_game_user = user;
-                        Users.Add(in_game_user);
-
-                        Console.WriteLine("You have successfully registered!");
-                        Console.ReadKey(); Console.Clear();
-                        return;
-                    }
-                }
-                catch (Exit) { throw new Exception(); }
-                catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
-            }
-        }
-        void EnterAsAGuest()
-        {
-            try
-            {
-                Console.WriteLine("If you log in as a guest, your data will not be saved after logging out.");
-                Console.WriteLine("Are you sure you want to continue?");
-
-                if (Menu.IsContinue()) { in_game_user = new User("Guest"); }
-                else { throw new Exit(); }
-            }
-            catch (Exit) { throw; }
-            catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
-        }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public void First()
         {
-            UsersFileWorkLoad();
-            GamesFileWorkLoad();
+            LoadInfo();
 
             bool exit = false;
             while (!exit)
@@ -302,12 +333,7 @@ namespace _24._02._02_Coursework
                 catch (Exception) { }
             }
         }
-        public void Final()
-        {
-            UsersFileWorkSave();
-            GamesFileWorkSave();
-        }
-
+        
         public void Win(Game game)
         {
             try
@@ -345,6 +371,8 @@ namespace _24._02._02_Coursework
             Console.ReadKey();
         }
 
+        // ----------
+
         public void ShowAllGames()
         {
             if (Games.Count == 0) { Console.WriteLine("Games list empty!"); }
@@ -357,17 +385,6 @@ namespace _24._02._02_Coursework
             }
             Console.ReadKey();
         }
-        public void ShowAllUsers()
-        {
-            if (Users.Count == 0) { Console.WriteLine("Games list empty!"); Console.ReadKey(); }
-            else
-            {
-                for (int i = 0; i < Users.Count; i++)
-                {
-                    Console.WriteLine(Users[i].Name + " | " + Users[i].Password);
-                }
-            }
-            Console.ReadKey();
-        }
+        
     }
 }

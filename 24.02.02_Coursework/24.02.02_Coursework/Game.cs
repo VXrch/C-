@@ -9,14 +9,30 @@ namespace _24._02._02_Coursework
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        public Game() { Subject = "None"; Questions = new List<Question>(); Stats = new Statistic(); Difficultie = Difficulties.Easy; identString = GenerateIdentString(); }
-        public Game(string subject) : this() { Subject = subject; }
-        public Game(string subject, List<Question> questions, Statistic stats, Difficulties difficultie)
-        { Subject = subject; Questions = questions; Stats = stats; Difficultie = difficultie; identString = GenerateIdentString(); }
+        public Game() 
+        { 
+            subject = new Subject(); 
+            Questions = new List<Question>(); 
+            Stats = new Statistic(); 
+            Difficultie = Difficulties.Easy; 
+            identString = GenerateIdentString(); 
+        }
+        public Game(Subject subj) : this()
+        {
+            subject = subj;
+        }
+        public Game (Subject subj, List<Question> questions, Statistic stats, Difficulties difficultie, string identstring)
+        { 
+            subject = subj; 
+            Questions = questions; 
+            Stats = stats; 
+            Difficultie = difficultie; 
+            identString = identstring; 
+        }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        public string Subject { get; set; }
+        public Subject subject { get; set; }
 
         public List<Question> Questions { get; set; }
 
@@ -71,12 +87,12 @@ namespace _24._02._02_Coursework
         }
         public bool IsMatchingGame(Game newGame)
         {
-            return Subject == newGame.Subject && Difficultie == newGame.Difficultie;
+            return subject == newGame.subject && Difficultie == newGame.Difficultie;
         }
 
         public override string ToString()
         {
-            return $"Subject: {Subject} | Difficultie: {Difficultie} | Total Games: {Stats.Games} | Of those, they won: {Stats.Wins}";
+            return $"Subject: {subject} | Difficultie: {Difficultie} | Total Games: {Stats.Games} | Of those, they won: {Stats.Wins}";
         }
     }
 }

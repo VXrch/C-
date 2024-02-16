@@ -4,6 +4,7 @@ namespace _24._02._02_Coursework
     struct Subject
     {
         public Subject() { _subject = null; }
+        public Subject(string subject) { if (IsValidSubject(subject)) { _subject = subject; } }
 
         // ------------------------------------
 
@@ -20,41 +21,35 @@ namespace _24._02._02_Coursework
 
         // ------------------------------------
 
-        bool IsValidSubject(string subject)
+        static public bool IsValidSubject(string subject)
         {
-            if (string.IsNullOrEmpty(subject) || string.IsNullOrWhiteSpace(subject) || !char.IsUpper(subject[0]) || subject.Length < 3) { return false; }
-
-            foreach (var item in subject)
-            {
-                if (!char.IsLetter(item)) { return false; }
-            }
-
+            if (string.IsNullOrEmpty(subject) || string.IsNullOrWhiteSpace(subject) || !char.IsUpper(subject[0]) || subject.Length < 2) { return false; }
             return true;
         }
+        static public bool IsValidSubject(Subject subject)
+        {
+            return IsValidSubject(subject.SubjectName);
+        }
+
         public override string ToString()
         {
             return SubjectName;
         }
-    }
-
-    class GameSubjects
-    {
-        List<Subject> _subjects;
-        public List<Subject> Subjects
+        static public Subject MakeSubject()
         {
-            get { return _subjects; }
+
+
+
+            throw new Exception();
         }
 
-        public void Add(Subject subject)
+        public static bool operator ==(Subject lsubj, Subject rsubj)
         {
-            if (Subjects.Contains(subject)) { throw new AlredyExist(); }
-
-            //
-            //
-            //
+            return lsubj.SubjectName == rsubj.SubjectName;
         }
-
+        public static bool operator !=(Subject lsubj, Subject rsubj)
+        {
+            return lsubj.SubjectName != rsubj.SubjectName;
+        }
     }
-
-
 }

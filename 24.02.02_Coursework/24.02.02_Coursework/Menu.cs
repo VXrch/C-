@@ -95,6 +95,8 @@ namespace _24._02._02_Coursework
             }
         }
 
+        //  ----------
+
         void PlayGame(Game game)
         {
             int points = 0;
@@ -104,7 +106,6 @@ namespace _24._02._02_Coursework
             Quizz(game, ref points);
             GameOver(game, points);
         }
-
         Game FindGame(Game subject_game)
         {
             List<Game> matchingGames = _startEnd.Games
@@ -132,27 +133,30 @@ namespace _24._02._02_Coursework
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        void Math()
+        Subject ChooseSubject()
         {
-            try
+            for (int i = 0; i < ; i++)
             {
-                Game math_game = new Game("Math");
-                math_game.Difficultie = Game.ChooseDifficultie();
 
-                math_game = FindGame(math_game);
-                PlayGame(math_game);
             }
-            catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
+
+
+
+
+            throw new Exception();
         }
-        void English()
+
+        void StartGame()
         {
             try
             {
-                Game english_game = new Game("English");
-                english_game.Difficultie = Game.ChooseDifficultie();
+                Subject subj = ChooseSubject();
 
-                english_game = FindGame(english_game);
-                PlayGame(english_game);
+                Game game = new Game(subj);
+                game.Difficultie = Game.ChooseDifficultie();
+
+                game = FindGame(game);
+                PlayGame(game);
             }
             catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
         }
@@ -174,26 +178,23 @@ namespace _24._02._02_Coursework
                     Console.WriteLine();
                     Console.WriteLine("[0] - Exit");
                     Console.WriteLine("[1] - See my stats");
-                    Console.WriteLine("[2] - See Games");
+                    Console.WriteLine("[2] - See all games");
                     Console.WriteLine();
-                    Console.WriteLine("[3] - Math");
-                    Console.WriteLine("[4] - English");
+                    Console.WriteLine("[3] - Play");
                     Console.WriteLine();
-                    Console.WriteLine("[5] - Create a new quizz");
+                    Console.WriteLine("[4] - Create a new quizz");
                     Console.WriteLine();
 
                     int res = IntResult();
 
-                    GameModeDelegate[] gm_delegete = new GameModeDelegate[]
+                    switch (res)
                     {
-                            Math, English,
-                    };
-
-                    if (res == 0) { exit = true; }
-                    else if (res == 1) { _startEnd.in_game_user.Show(); }
-                    else if (res == 2) { _startEnd.ShowAllGames(); }
-                    else if (res == 5) { _startEnd.CreateNewGame(); }
-                    else if (res != -1) { res -= 3; gm_delegete[res]?.Invoke(); }
+                        case 0: exit = true; break;
+                        case 1: _startEnd.in_game_user.Show(); break;
+                        case 2: _startEnd.ShowAllGames(); break;
+                        case 3: StartGame();  break;
+                        case 4: _startEnd.CreateNewGame(); break;
+                    }
                 }
                 catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
             }

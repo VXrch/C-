@@ -64,6 +64,20 @@ namespace _24._02._02_Coursework
             Console.ReadKey();
         }
 
+        static public string FillPassword()
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter your password (8 symbhols, big letters, small letters and numbers) or [0] to exit: ");
+                Console.WriteLine("(~0_0)~  "); string line = Console.ReadLine();
+
+                if (line == "0") { throw new Exit(); }
+
+                if (Menu.IsCorrectPassword(line)) { return line; }
+                else { Console.WriteLine("Incorrect password! Try again!"); Console.ReadKey(); Console.Clear(); }
+            }
+        }
+
         // ---------------------------------------
 
         public bool Equals(User other)

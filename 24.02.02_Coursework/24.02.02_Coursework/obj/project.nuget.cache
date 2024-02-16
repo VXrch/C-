@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "TkzC465a8xrLsEdk6j/ZxnoZhB+sZPbIOepEldHTnORn+Niq1E6KGWogNAiX0HBUGvkQLntq7Mnp4+LL/CB3FA==",
+  "dgSpecHash": "daP+Gkj+iZPDMCeODNltwZiZF178p8VdGHfn2xDIspTE/Tq6gdWV1jUDTz/XgFFonwYaKxmu/zQENPAPDCWwVw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dev\\Desktop\\New folder (4)\\My\\24.02.02_Coursework\\24.02.02_Coursework\\24.02.02_Coursework.csproj",
+  "projectFilePath": "D:\\ForAll\\C#\\24.02.02_Coursework\\24.02.02_Coursework\\24.02.02_Coursework.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\dev\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\Админ\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dev\\Desktop\\New folder (4)\\My\\24.02.02_Coursework\\24.02.02_Coursework\\24.02.02_Coursework.csproj": {}
+    "D:\\ForAll\\C#\\24.02.02_Coursework\\24.02.02_Coursework\\24.02.02_Coursework.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dev\\Desktop\\New folder (4)\\My\\24.02.02_Coursework\\24.02.02_Coursework\\24.02.02_Coursework.csproj": {
+    "D:\\ForAll\\C#\\24.02.02_Coursework\\24.02.02_Coursework\\24.02.02_Coursework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dev\\Desktop\\New folder (4)\\My\\24.02.02_Coursework\\24.02.02_Coursework\\24.02.02_Coursework.csproj",
+        "projectUniqueName": "D:\\ForAll\\C#\\24.02.02_Coursework\\24.02.02_Coursework\\24.02.02_Coursework.csproj",
         "projectName": "24.02.02_Coursework",
-        "projectPath": "C:\\Users\\dev\\Desktop\\New folder (4)\\My\\24.02.02_Coursework\\24.02.02_Coursework\\24.02.02_Coursework.csproj",
-        "packagesPath": "C:\\Users\\dev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dev\\Desktop\\New folder (4)\\My\\24.02.02_Coursework\\24.02.02_Coursework\\obj\\",
+        "projectPath": "D:\\ForAll\\C#\\24.02.02_Coursework\\24.02.02_Coursework\\24.02.02_Coursework.csproj",
+        "packagesPath": "C:\\Users\\Админ\\.nuget\\packages\\",
+        "outputPath": "D:\\ForAll\\C#\\24.02.02_Coursework\\24.02.02_Coursework\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dev\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Админ\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -66,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
